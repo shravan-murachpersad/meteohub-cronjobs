@@ -1,4 +1,6 @@
-## Python3 Virtualenv Setup
+```bash
+$ git clone https://shravankeshav@bitbucket.org/projexelmauritius/meteohub.datafeeder.git
+```
 
 ##### Requirements
 * Python 3
@@ -10,14 +12,13 @@ $ brew install python3
 
 Pip3 is installed with Python3
 
-##### Installation
+##### Setup Virtual Environment
 To install virtualenv via pip run:
 ```bash
 $ pip3 install virtualenv
 ```
 
 ##### Usage
-Creation of virtualenv:
 ```bash
 $ virtualenv -p python3 <desired-path>
 ```
@@ -33,4 +34,14 @@ $ deactivate
 ```
 
 
-[About Virtualenv](https://virtualenv.pypa.io/en/stable/)
+##### Adding New Package
+```bash
+$ pip install <packagename>
+$ pip freeze > requirements.txt
+```
+
+##### Restore Package
+```bash
+$ pip install -r requirements.txt
+```
+
