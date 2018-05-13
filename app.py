@@ -3,9 +3,9 @@ import SynopticChartReader
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('interval', seconds=1)
+@sched.scheduled_job('interval', hour=5)
 def timed_job():
-    SynopticChartReader.Run();
+    # SynopticChartReader.Run();
 
 @sched.scheduled_job('cron', day_of_week='mon-fri', hour=17)
 def scheduled_job():
