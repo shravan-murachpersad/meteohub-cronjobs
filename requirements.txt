@@ -7,7 +7,7 @@ idna==2.6
 idna-ssl==1.0.1
 lxml==4.1.1
 multidict==4.1.0
-python-crontab==2.2.8
+python-crontab==2.3.0
 python-dateutil==2.6.1
 pytz==2018.3
 six==1.11.0
