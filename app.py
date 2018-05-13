@@ -1,12 +1,14 @@
-from crontab import CronTab
+from apscheduler.schedulers.blocking import BlockingScheduler
+import SynopticChartReader
 
-cron = CronTab(user='murachpersad')  
-# job = cron.new(command='python /app/WeatherStation.py')  
-# job.minute.every(15)
+sched = BlockingScheduler()
 
-Synoptic_Reader = cron.new(command='python /app/Test.py')  
-Synoptic_Reader.minute.every(1)
+@sched.scheduled_job('interval', seconds=1)
+def timed_job():
+    SynopticChartReader.Run();
 
-#cron.remove_all()
+@sched.scheduled_job('cron', day_of_week='mon-fri', hour=17)
+def scheduled_job():
+    print('This job is run every weekday at 5pm.')
 
-cron.write()
+sched.start()
