@@ -1,10 +1,14 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
+from urllib.error import HTTPError
+from urllib.request import urlopen, Request
+from urllib.parse import urlparse, urlencode
 # import SynopticChartReader
 
 sched = BlockingScheduler()
 
 @sched.scheduled_job('interval', minutes=25)
 def timed_job():
+    result = urlopen("https://meteohub-bot.herokuapp.com/ping").read()
     print("I'm working...")
     # SynopticChartReader.Run();
 
